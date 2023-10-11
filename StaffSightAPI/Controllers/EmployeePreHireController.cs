@@ -23,13 +23,25 @@ namespace StaffSightAPI.Controllers
 
         // GET: api/EmployeePreHire
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<EmployeePreHire>>> GetEmployeePreHires()
+        public async Task<ActionResult<IEnumerable<EmployeePreHire>>> GetEmployeePreHires(int pageNumber = 1, int pageSize = 10, string sortColumn = "EmpID", bool sortDesc = false)
         {
           if (_context.EmployeePreHires == null)
           {
               return NotFound();
           }
-            return await _context.EmployeePreHires.ToListAsync();
+            var employees = _context.EmployeePreHires.AsQueryable();  // Make sure you're working with IQueryable
+            if(sortDesc)
+            {
+                employees = employees.OrderByDescending(e => EF.Property<object>(e, sortColumn));
+            }
+            else
+            {
+                employees = employees.OrderBy(e => EF.Property<object>(e, sortColumn));
+            }
+            var pagedEmployees = await employees.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
+            
+            return Ok(pagedEmployees);
+            //return await _context.EmployeePreHires.ToListAsync();
         }
 
         // GET: api/EmployeePreHire/5
