@@ -1,0 +1,15 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/StaffSightAPI/bin/Debug/net7.0
+/StaffSightAPI/obj/Debug/net7.0/ref
+/StaffSightAPI/obj/Debug/net7.0/refint
+/StaffSightAPI/obj/Debug/net7.0/staticwebassets
+/StaffSightAPI/obj/Debug/net7.0/apphost.exe
+/StaffSightAPI/obj/Debug/net7.0/StaffSightAPI.csproj.CopyComplete
+/StaffSightAPI/obj/Debug/net7.0/StaffSightAPI.csproj.FileListAbsolute.txt
+/StaffSightAPI/obj/Debug/net7.0/StaffSightAPI.dll
+/StaffSightAPI/obj/Debug/net7.0/StaffSightAPI.genruntimeconfig.cache
+/.vs/StaffSightAPI/v17/.suo
+/StaffSightAPI/obj/Debug/net7.0
