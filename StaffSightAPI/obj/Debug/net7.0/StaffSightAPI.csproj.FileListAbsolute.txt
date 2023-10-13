@@ -1,0 +1,7 @@
+C:\Users\bryan\source\repos\StaffSightAPI\StaffSightAPI\obj\Debug\net7.0\StaffSightAPI.csproj.AssemblyReference.cache
+C:\Users\bryan\source\repos\StaffSightAPI\StaffSightAPI\obj\Debug\net7.0\StaffSightAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bryan\source\repos\StaffSightAPI\StaffSightAPI\obj\Debug\net7.0\StaffSightAPI.AssemblyInfoInputs.cache
+C:\Users\bryan\source\repos\StaffSightAPI\StaffSightAPI\obj\Debug\net7.0\StaffSightAPI.AssemblyInfo.cs
+C:\Users\bryan\source\repos\StaffSightAPI\StaffSightAPI\obj\Debug\net7.0\StaffSightAPI.csproj.CoreCompileInputs.cache
+C:\Users\bryan\source\repos\StaffSightAPI\StaffSightAPI\obj\Debug\net7.0\StaffSightAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\bryan\source\repos\StaffSightAPI\StaffSightAPI\obj\Debug\net7.0\StaffSightAPI.MvcApplicationPartsAssemblyInfo.cache
