@@ -17,9 +17,10 @@ namespace StaffSightAPI.Services
         public EmployeeService(DataContext context)
         {
             _context = context;
+
         }
 
-        public async Task<IEnumerable<EmployeePreHire>> GetEmployeesAsync(int pageNumber, int pageSize, string sortBy, string sortOrder, string fields)
+        public async Task<IEnumerable<EmployeeDto>> GetEmployeesAsync(int pageNumber, int pageSize, string sortBy, string sortOrder, string fields)
         {
             // Start with a queryable that includes potential joins (with employee_dm, for example)
             var query = _context.EmployeePreHires.AsQueryable();
