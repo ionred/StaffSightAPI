@@ -1,8 +1,11 @@
 ﻿#nullable disable
+using System.ComponentModel.DataAnnotations;
+
 namespace StaffSightAPI.Models
 {
     public class AuditTrail
     {
+        [Key]
         public int AuditTrailID { get; set; }
         public string ModuleUsed { get; set; }
         public string TableName { get; set; }

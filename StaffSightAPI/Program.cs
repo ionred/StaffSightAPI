@@ -1,6 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using StaffSightAPI.Data;
 using StaffSightAPI.Models;
+using StaffSightAPI.Repositories.Implementation;
+using StaffSightAPI.Repositories;
+using StaffSightAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,6 +31,7 @@ builder.Services.AddDbContext<DataContext>(options =>
 
 
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 
 var app = builder.Build();
 

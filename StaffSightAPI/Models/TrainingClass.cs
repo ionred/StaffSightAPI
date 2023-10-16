@@ -1,8 +1,11 @@
 ﻿#nullable disable
+using System.ComponentModel.DataAnnotations;
+
 namespace StaffSightAPI.Models
 {
     public class TrainingClass
     {
+        [Key]
         public int TrainingClassID { get; set; }
         public string ClassName { get; set; }
         public string ClassType { get; set; }

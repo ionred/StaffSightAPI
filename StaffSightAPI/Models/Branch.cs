@@ -7,6 +7,7 @@ namespace StaffSightAPI.Models
     public class Branch
     {
 
+        [Key]
         [Required]
         public string BranchID { get; set; }
         [Required] 

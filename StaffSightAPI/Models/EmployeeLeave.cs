@@ -5,6 +5,9 @@ namespace StaffSightAPI.Models
 {
     public class EmployeeLeave
     {
+        [Required]
+        [Key]
+        public int LeaveID { get; set; }
         [Required] 
         public string EmpID { get; set; }
         [Required]

@@ -1,8 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace StaffSightAPI.Models
 {
+    [Table("employeePreHire")]
     public class EmployeePreHire
     {
+        [Key]
         public int PreHireID { get; set; }
 
         [Required]

@@ -1,6 +1,11 @@
-﻿using StaffSightAPI.Repositories.Interfaces;
+﻿using StaffSightAPI.DTOs;
+using StaffSightAPI.Models;
+using StaffSightAPI.Repositories.Interfaces;
 
-public interface IEmployeeRepository : IGenericRepository<Employee>
+namespace StaffSightAPI.Repositories
 {
-    Task<IEnumerable<EmployeeDto>> GetEmployeesWithDmAsync(int pageNumber, int pageSize, string sortBy, string sortOrder, string fields);
+    public interface IEmployeeRepository : IGenericRepository<EmployeePreHire>
+    {
+        Task<List<object>> GetMergedEmployees(int pageSize, int pageNumber, string sortBy, List<string> fields);
+    }
 }

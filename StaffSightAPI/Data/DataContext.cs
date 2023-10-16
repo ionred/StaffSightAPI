@@ -21,12 +21,17 @@ namespace StaffSightAPI.Data
         public DbSet<AuditTrail> AuditTrails { get; set; }
         public DbSet<ClassAttendance> ClassAttendances { get; set; }
         public DbSet<PreHireBillet> PreHireBillets { get; set; }
+        public DbSet<EmployeeDM> EmployeeDMs { get; set; }
 
 
         // Additional DbSet properties for the other entities can be added here as needed
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<EmployeeDM>().HasKey(e => e.HrEmpID); 
+
+            //modelBuilder.Entity<EmployeeDM>().HasQueryFilter(e => e.HrCurrentRow == 1);
+
             // Specific configurations or model relationships can be defined here.
             // For example, if you have special configurations for some tables or relationships, 
             // you would include them here.
