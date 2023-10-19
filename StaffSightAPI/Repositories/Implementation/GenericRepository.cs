@@ -6,6 +6,10 @@ using StaffSightAPI.Data;
 
 namespace StaffSightAPI.Repositories.Implementations
 {
+    public interface IHasPreHireID
+    {
+        int PreHireID { get; set; }
+    }
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         private readonly DataContext _context;
@@ -50,6 +54,17 @@ namespace StaffSightAPI.Repositories.Implementations
         public async Task<bool> SaveAllAsync()
         {
             return await _context.SaveChangesAsync() > 0;
+        }
+
+
+        public async Task<List<T>> GetByPreHireIdAsync(int? preHireID)
+        {
+            // Ensure T implements IHasPreHireID
+            if (typeof(IHasPreHireID).IsAssignableFrom(typeof(T)))
+            {
+                return await _context.Set<T>().Where(e => (e as IHasPreHireID).PreHireID == preHireID).ToListAsync();
+            }
+            throw new InvalidOperationException("Entity does not have a PreHireID property.");
         }
     }
 }

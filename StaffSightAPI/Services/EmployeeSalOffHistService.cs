@@ -14,11 +14,6 @@ namespace StaffSightAPI.Services
             _salaryRepository = salaryRepository;
         }
 
-        public async Task<IEnumerable<EmployeeSalOffHist>> GetAllSalariesAsync()
-        {
-            return await _salaryRepository.GetAllAsync();
-        }
-
         public async Task<EmployeeSalOffHist?> GetSalaryByIdAsync(int id)
         {
             return await _salaryRepository.GetByIdAsync(id);
@@ -29,20 +24,24 @@ namespace StaffSightAPI.Services
             await _salaryRepository.AddAsync(salary);
             return await _salaryRepository.SaveAllAsync();
         }
+        //public async Task<bool> UpdateSalaryAsync(EmployeeSalOffHist salary)
+        //{
+        //    _salaryRepository.Update(salary);
+        //    return await _salaryRepository.SaveAllAsync();
+        //}
 
-        public async Task<bool> UpdateSalaryAsync(EmployeeSalOffHist salary)
+        //public async Task<bool> DeleteSalaryAsync(int id)
+        //{
+        //    var salary = await _salaryRepository.GetByIdAsync(id);
+        //    if (salary == null) return false;
+
+        //    _salaryRepository.Delete(salary);
+        //    return await _salaryRepository.SaveAllAsync();
+        //}
+
+        public async Task<List<EmployeeSalOffHist>> GetSalaryByPreHireIdAsync(int? preHireID)
         {
-            _salaryRepository.Update(salary);
-            return await _salaryRepository.SaveAllAsync();
-        }
-
-        public async Task<bool> DeleteSalaryAsync(int id)
-        {
-            var salary = await _salaryRepository.GetByIdAsync(id);
-            if (salary == null) return false;
-
-            _salaryRepository.Delete(salary);
-            return await _salaryRepository.SaveAllAsync();
+            return await _salaryRepository.GetByPreHireIdAsync(preHireID);
         }
     }
 }

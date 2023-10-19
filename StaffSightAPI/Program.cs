@@ -4,6 +4,8 @@ using StaffSightAPI.Models;
 using StaffSightAPI.Repositories.Implementation;
 using StaffSightAPI.Repositories;
 using StaffSightAPI.Services;
+using StaffSightAPI.Repositories.Implementations;
+using StaffSightAPI.Repositories.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,6 +34,10 @@ builder.Services.AddDbContext<DataContext>(options =>
 
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
+builder.Services.AddScoped<IEmployeeSalOffHistService, EmployeeSalOffHistService>();
+builder.Services.AddScoped<IEmployeeNoteService, EmployeeNoteService>();
+builder.Services.AddScoped<IEmployeeLeaveService, EmployeeLeaveService>();
+builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
 var app = builder.Build();
 

@@ -52,5 +52,11 @@ namespace StaffSightAPI.Services
         {
             return await _employeeRepository.GetMergedEmployees(pageSize, pageNumber, sortBy, fields);
         }
+
+        public async Task<EmployeeDto> GetMergedEmployeeById(int? preHireID, string? empID)
+        {
+            return await _employeeRepository.GetMergedEmployeeById(preHireID, empID);
+        }
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using StaffSightAPI.Models;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace StaffSightAPI.Repositories.Interfaces
@@ -11,5 +12,6 @@ namespace StaffSightAPI.Repositories.Interfaces
         void Update(T entity);
         void Delete(T entity);
         Task<bool> SaveAllAsync();
+        Task<List<T>> GetByPreHireIdAsync(int? preHireID);
     }
 }

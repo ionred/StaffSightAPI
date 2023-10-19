@@ -11,5 +11,6 @@ namespace StaffSightAPI.Services
         Task<bool> AddNoteAsync(EmployeeNote note);
         Task<bool> UpdateNoteAsync(EmployeeNote note);
         Task<bool> DeleteNoteAsync(int id);
+        Task<List<EmployeeNote>> GetEmployeeNotes(int? preHireID);
     }
 }

@@ -46,8 +46,8 @@ namespace StaffSightAPI.DTOs
         public string? HrFirstName { get; set; }
         public string? HrLastName { get; set; }
         public string? HrLocation { get; set; }
-        public string? HrHireDate { get; set; }
-        public string? HrVilletNumber { get; set; }
+        public DateTime? HrHireDate { get; set; }
+        public string? HrBilletNumber { get; set; }
         public string? HrVendor { get; set; }
         public string? HrSupervisorEmpID { get; set; }
         public string? HrBranchID { get; set; }

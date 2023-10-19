@@ -44,5 +44,10 @@ namespace StaffSightAPI.Services
             _noteRepository.Delete(note);
             return await _noteRepository.SaveAllAsync();
         }
+
+        public async Task<List<EmployeeNote>> GetEmployeeNotes(int? preHireID)
+        {
+            return await _noteRepository.GetByPreHireIdAsync(preHireID);
+        }
     }
 }

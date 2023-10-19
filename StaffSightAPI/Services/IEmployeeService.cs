@@ -13,6 +13,7 @@ namespace StaffSightAPI.Services
         //Task UpdateEmployeeAsync(EmployeePreHire employee);
         //Task DeleteEmployeeAsync(int id);
         Task<List<object>> GetMergedEmployees(int pageSize, int pageNumber, string sortBy, List<string> fields);
+        Task<EmployeeDto> GetMergedEmployeeById(int? preHireID, string? empID);
 
     }
 }

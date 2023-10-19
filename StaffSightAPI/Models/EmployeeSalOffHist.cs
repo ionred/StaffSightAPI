@@ -1,9 +1,12 @@
 ﻿#nullable disable
+using StaffSightAPI.Repositories.Implementations;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace StaffSightAPI.Models
 {
-    public class EmployeeSalOffHist
+    [Table("EmployeeSalOffHist")]
+    public class EmployeeSalOffHist: IHasPreHireID
     {
         [Key]
         public int SalaryID { get; set; }

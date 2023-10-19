@@ -1,9 +1,12 @@
 ﻿#nullable disable
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using StaffSightAPI.Repositories.Implementations;
 
 namespace StaffSightAPI.Models
 {
-    public class EmployeeNote
+    [Table("EmployeeNote")]
+    public class EmployeeNote : IHasPreHireID
     {
         [Key]
         public int EmployeeNoteID { get; set; }
