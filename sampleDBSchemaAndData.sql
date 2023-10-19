@@ -1,6 +1,6 @@
 ∩╗┐USE [master]
 GO
-/****** Object:  Database [StaffSightDB]    Script Date: 2023-10-19 12:07:45 AM ******/
+/****** Object:  Database [StaffSightDB]    Script Date: 2023-10-19 01:02:34 AM ******/
 CREATE DATABASE [StaffSightDB]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -131,7 +131,7 @@ ALTER DATABASE SCOPED CONFIGURATION SET XTP_QUERY_EXECUTION_STATISTICS = OFF;
 GO
 USE [StaffSightDB]
 GO
-/****** Object:  Table [dbo].[auditTrail]    Script Date: 2023-10-19 12:07:45 AM ******/
+/****** Object:  Table [dbo].[auditTrail]    Script Date: 2023-10-19 01:02:34 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -152,7 +152,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[auth_appGroupMapping]    Script Date: 2023-10-19 12:07:45 AM ******/
+/****** Object:  Table [dbo].[auth_appGroupMapping]    Script Date: 2023-10-19 01:02:34 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -167,7 +167,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[auth_claimMapping]    Script Date: 2023-10-19 12:07:45 AM ******/
+/****** Object:  Table [dbo].[auth_claimMapping]    Script Date: 2023-10-19 01:02:34 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -184,7 +184,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[branch]    Script Date: 2023-10-19 12:07:45 AM ******/
+/****** Object:  Table [dbo].[branch]    Script Date: 2023-10-19 01:02:34 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -198,7 +198,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[classAttendance]    Script Date: 2023-10-19 12:07:45 AM ******/
+/****** Object:  Table [dbo].[classAttendance]    Script Date: 2023-10-19 01:02:34 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -218,7 +218,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[classNameBuilder]    Script Date: 2023-10-19 12:07:45 AM ******/
+/****** Object:  Table [dbo].[classNameBuilder]    Script Date: 2023-10-19 01:02:34 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -233,7 +233,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[classroomAssignment]    Script Date: 2023-10-19 12:07:45 AM ******/
+/****** Object:  Table [dbo].[classroomAssignment]    Script Date: 2023-10-19 01:02:34 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -254,7 +254,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[employeedm]    Script Date: 2023-10-19 12:07:45 AM ******/
+/****** Object:  Table [dbo].[employeedm]    Script Date: 2023-10-19 01:02:34 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -263,6 +263,7 @@ CREATE TABLE [dbo].[employeedm](
 	[empID] [varchar](10) NOT NULL,
 	[firstName] [varchar](75) NULL,
 	[lastName] [varchar](75) NULL,
+	[locationID] [int] NULL,
 	[location] [varchar](75) NULL,
 	[hireDate] [date] NULL,
 	[billetNumber] [varchar](75) NULL,
@@ -270,14 +271,15 @@ CREATE TABLE [dbo].[employeedm](
 	[supervisorEmpID] [varchar](10) NULL,
 	[branchID] [varchar](10) NULL,
 	[employeeType] [nvarchar](20) NULL,
+	[jobTitle] [varchar](75) NULL,
 	[CurrentRow] [int] NOT NULL,
-PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK__employee__AFB3EC6DF9B5230D] PRIMARY KEY CLUSTERED 
 (
 	[empID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[employeeLeave]    Script Date: 2023-10-19 12:07:45 AM ******/
+/****** Object:  Table [dbo].[employeeLeave]    Script Date: 2023-10-19 01:02:34 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -291,7 +293,7 @@ CREATE TABLE [dbo].[employeeLeave](
 	[note] [nvarchar](1000) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[employeeNote]    Script Date: 2023-10-19 12:07:45 AM ******/
+/****** Object:  Table [dbo].[employeeNote]    Script Date: 2023-10-19 01:02:34 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -309,7 +311,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[employeePreHire]    Script Date: 2023-10-19 12:07:45 AM ******/
+/****** Object:  Table [dbo].[employeePreHire]    Script Date: 2023-10-19 01:02:34 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -352,7 +354,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[employeeSalOffHist]    Script Date: 2023-10-19 12:07:45 AM ******/
+/****** Object:  Table [dbo].[employeeSalOffHist]    Script Date: 2023-10-19 01:02:34 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -371,7 +373,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[genericDefinition]    Script Date: 2023-10-19 12:07:45 AM ******/
+/****** Object:  Table [dbo].[genericDefinition]    Script Date: 2023-10-19 01:02:34 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -386,7 +388,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[location]    Script Date: 2023-10-19 12:07:45 AM ******/
+/****** Object:  Table [dbo].[location]    Script Date: 2023-10-19 01:02:34 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -401,7 +403,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[preHireBillet]    Script Date: 2023-10-19 12:07:45 AM ******/
+/****** Object:  Table [dbo].[preHireBillet]    Script Date: 2023-10-19 01:02:34 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -415,7 +417,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[shift]    Script Date: 2023-10-19 12:07:45 AM ******/
+/****** Object:  Table [dbo].[shift]    Script Date: 2023-10-19 01:02:34 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -431,7 +433,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[trainerAssignment]    Script Date: 2023-10-19 12:07:45 AM ******/
+/****** Object:  Table [dbo].[trainerAssignment]    Script Date: 2023-10-19 01:02:34 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -449,7 +451,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[trainingActivity]    Script Date: 2023-10-19 12:07:45 AM ******/
+/****** Object:  Table [dbo].[trainingActivity]    Script Date: 2023-10-19 01:02:34 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -465,7 +467,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[trainingClass]    Script Date: 2023-10-19 12:07:45 AM ******/
+/****** Object:  Table [dbo].[trainingClass]    Script Date: 2023-10-19 01:02:34 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -488,7 +490,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[trainingExclusion]    Script Date: 2023-10-19 12:07:45 AM ******/
+/****** Object:  Table [dbo].[trainingExclusion]    Script Date: 2023-10-19 01:02:34 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -503,7 +505,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-INSERT [dbo].[employeedm] ([empID], [firstName], [lastName], [location], [hireDate], [billetNumber], [vendor], [supervisorEmpID], [branchID], [employeeType], [CurrentRow]) VALUES (N'A6597', N'Bryan', N'Chaffin', N'Heritage Oaks', CAST(N'2019-07-19' AS Date), N'0001IDK002', NULL, N'50000', N'W000098', N'FTE', 1)
+INSERT [dbo].[employeedm] ([empID], [firstName], [lastName], [locationID], [location], [hireDate], [billetNumber], [vendor], [supervisorEmpID], [branchID], [employeeType], [jobTitle], [CurrentRow]) VALUES (N'A6597', N'Bryan', N'Chaffin', 1, N'Heritage Oaks', CAST(N'2019-07-19' AS Date), N'0001IDK002', NULL, N'50000', N'W000098', N'FTE', NULL, 1)
 SET IDENTITY_INSERT [dbo].[employeeNote] ON 
 
 INSERT [dbo].[employeeNote] ([employeeNoteID], [preHireID], [note], [isConfidential], [enteredDate], [enteredBy]) VALUES (1, 3, N'FirstNote For PH3', 0, CAST(N'2023-10-18T23:55:00.000' AS DateTime), N'A6597')
@@ -540,7 +542,7 @@ INSERT [dbo].[employeeSalOffHist] ([salaryID], [preHireID], [salary], [salaryTyp
 SET IDENTITY_INSERT [dbo].[employeeSalOffHist] OFF
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [UQ_employeePreHire_empID]    Script Date: 2023-10-19 12:07:45 AM ******/
+/****** Object:  Index [UQ_employeePreHire_empID]    Script Date: 2023-10-19 01:02:34 AM ******/
 ALTER TABLE [dbo].[employeePreHire] ADD  CONSTRAINT [UQ_employeePreHire_empID] UNIQUE NONCLUSTERED 
 (
 	[empID] ASC
