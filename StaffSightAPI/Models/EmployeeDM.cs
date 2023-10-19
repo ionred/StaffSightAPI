@@ -19,6 +19,9 @@ namespace StaffSightAPI.Models
         [Column("Location")]
         public string? HrLocation { get; set; }
 
+        [Column("LocationID")]
+        public int? HrLocationID { get; set; }
+
         [Column("HireDate")]
         public DateTime? HrHireDate { get; set; }
 
@@ -33,6 +36,9 @@ namespace StaffSightAPI.Models
 
         [Column("EmployeeType")]
         public string? HrEmployeeType { get; set; }
+
+        [Column("jobTitle")]
+        public string? HrJobTitle { get; set; }
 
         [Column("Vendor")]
         public string? HrVendor { get; set; }

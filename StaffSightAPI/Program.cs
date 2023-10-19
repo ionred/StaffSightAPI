@@ -38,6 +38,9 @@ builder.Services.AddScoped<IEmployeeSalOffHistService, EmployeeSalOffHistService
 builder.Services.AddScoped<IEmployeeNoteService, EmployeeNoteService>();
 builder.Services.AddScoped<IEmployeeLeaveService, EmployeeLeaveService>();
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+builder.Services.AddScoped<IPreFillRepository, PreFillRepository>();
+builder.Services.AddScoped<IPreFillService, PreFillService>();
+
 
 var app = builder.Build();
 

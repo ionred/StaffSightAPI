@@ -22,6 +22,7 @@ namespace StaffSightAPI.Data
         public DbSet<ClassAttendance> ClassAttendances { get; set; }
         public DbSet<PreHireBillet> PreHireBillets { get; set; }
         public DbSet<EmployeeDM> EmployeeDMs { get; set; }
+        public DbSet<Location> Locations { get; set; }
 
 
         // Additional DbSet properties for the other entities can be added here as needed
